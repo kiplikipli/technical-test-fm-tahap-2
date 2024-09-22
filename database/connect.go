@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/kiplikipli/technical-test-fm-tahap-2/entity"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -16,7 +17,7 @@ func ConnectDB() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = DB.AutoMigrate()
+	err = DB.AutoMigrate(&entity.User{})
 	if err != nil {
 		log.Fatal(err)
 	}
