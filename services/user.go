@@ -11,6 +11,17 @@ import (
 
 type User entity.User
 
+func GetUserByID(id uuid.UUID) (*User, error) {
+	db := database.DB
+	found := User{}
+	query := User{
+		ID: id,
+	}
+
+	err := db.First(&found, &query).Error
+	return &found, err
+}
+
 func GetUserByPhoneNumber(phoneNumber string) (*User, error) {
 	db := database.DB
 	found := User{}

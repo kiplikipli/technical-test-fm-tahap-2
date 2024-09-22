@@ -20,4 +20,7 @@ func Initalize(router *fiber.App) {
 
 	router.Use(middleware.Auth)
 	router.Put("/profile", handlers.UpdateProfile)
+	router.Post("/topup", handlers.CreateTopUp)
+	router.Post("/payment", handlers.CreatePayment)
+	router.Post("/transfer", handlers.CreateTransfer)
 }
